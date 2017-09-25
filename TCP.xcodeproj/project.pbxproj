@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A44CA761F797138000051C6 /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A44CA751F797138000051C6 /* main.c */; };
+		9A44CA961F7986EC000051C6 /* Client.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A44CA951F7986EC000051C6 /* Client.c */; };
+		9A44CA981F7986FE000051C6 /* Server.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A44CA971F7986FE000051C6 /* Server.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,8 @@
 
 /* Begin PBXFileReference section */
 		9A44CA721F797138000051C6 /* TCP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TCP; sourceTree = BUILT_PRODUCTS_DIR; };
-		9A44CA751F797138000051C6 /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		9A44CA951F7986EC000051C6 /* Client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Client.c; sourceTree = "<group>"; };
+		9A44CA971F7986FE000051C6 /* Server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Server.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +43,7 @@
 		9A44CA691F797137000051C6 = {
 			isa = PBXGroup;
 			children = (
-				9A44CA741F797138000051C6 /* TCP */,
+				9A44CA941F79869A000051C6 /* TCP */,
 				9A44CA731F797138000051C6 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -54,12 +56,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9A44CA741F797138000051C6 /* TCP */ = {
+		9A44CA941F79869A000051C6 /* TCP */ = {
 			isa = PBXGroup;
 			children = (
-				9A44CA751F797138000051C6 /* main.c */,
+				9A44CA951F7986EC000051C6 /* Client.c */,
+				9A44CA971F7986FE000051C6 /* Server.c */,
 			);
-			path = TCP;
+			name = TCP;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -119,7 +122,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A44CA761F797138000051C6 /* main.c in Sources */,
+				9A44CA981F7986FE000051C6 /* Server.c in Sources */,
+				9A44CA961F7986EC000051C6 /* Client.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,6 +220,7 @@
 		9A44CA7A1F797138000051C6 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				OTHER_LDFLAGS = "-v";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -223,6 +228,7 @@
 		9A44CA7B1F797138000051C6 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				OTHER_LDFLAGS = "-v";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
