@@ -57,5 +57,5 @@ int main(int argc, char **argv)
         fputs(recv_line, stdout);
     }
     
-    exit(0);
+    exit(0); // exit
 }

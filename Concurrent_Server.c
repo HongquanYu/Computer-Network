@@ -10,8 +10,8 @@
 
 int main (int argc, char **argv)
 {
-    int listen_fd;                       // Listen socket descriptor
-    int conn_fd;                         // Connection socket descriptor
+    int listen_fd;                      // Listen socket descriptor
+    int conn_fd;                        // Connection socket descriptor
     int msg_length;                     // Message length of writing received data to buffer
     pid_t child_pid;                    // Children process to handle clients' request
     socklen_t client_len;               //
@@ -38,7 +38,7 @@ int main (int argc, char **argv)
     
     printf("%s\n","Server running! Waiting for connections...");
     
-    for ( ; ; ) {           // run forever
+    for ( ; ; ) {   // run forever
         
         client_len = sizeof(client_addr);
         

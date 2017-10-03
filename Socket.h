@@ -6,10 +6,10 @@
 //  Copyright © 2017 YuAlex. All rights reserved.
 //
 
+#include <stdio.h>
+
 #ifndef SocketServer_h
 #define SocketServer_h
-
-#include <stdio.h>
 
 #define MAX_TEXT_LENGTH 4096          // max text line length
 #define SERV_PORT 3000              // port number
