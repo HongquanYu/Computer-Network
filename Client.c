@@ -1,48 +1,61 @@
-//
-//  Client.c
-//  TCP
-//
-//  Created by YuAlex on 9/25/17.
-//  Copyright © 2017 YuAlex. All rights reserved.
-//
-
+#include <stdlib.h>
+#include <stdio.h>
 #include <sys/types.h>
 #include <sys/socket.h>
-#include <sys/un.h>
-#include <stdio.h>
+#include <netinet/in.h>
+#include <string.h>
+#include <arpa/inet.h>
 
-#define DATA "Half a league, half a league . . ."
+#include "Socket.h"
 
-/*
-main(argc, argv)
-int argc;
-char *argv[];
+int main(int argc, char **argv)
 {
-    int sock;
-    struct sockaddr_un server;
-    char buf[1024];
+    int socket_fd;                      // Socket socket descriptor
+    struct sockaddr_in serv_addr;       // Server address structure
+    char send_line[MAX_TEXT_LENGTH];    // Buffer for storing send data
+    char recv_line[MAX_TEXT_LENGTH];    // Buffer for storing received data
     
+    //STEP 0: Arguments checking!
     
-    if (argc < 2) {
-        printf("usage:%s <pathname>", argv[0]);
+    if (argc != 2) {
+        perror("Usage: TCPClient <IP address of the server");
         exit(1);
     }
     
+    //STEP 1: Create a socket for the client
     
-    sock = socket(AF_UNIX, SOCK_STREAM, 0);
-    if (sock < 0) {
-        perror("opening stream socket");
+    if ((socket_fd = socket (AF_INET, SOCK_STREAM, 0)) < 0) {
+        perror("Problem in creating the socket");
+        exit(2);
     }
-    server.sun_family = AF_UNIX;
-    strcpy(server.sun_path, argv[1]);
     
+    //STEP 2: Prepare address
     
-    if (connect(sock, (struct sockaddr *) &server, sizeof(struct sockaddr_un)) < 0) {
-        close(sock);
-        perror("connecting stream socket");
-        exit(1);
+    memset(&serv_addr, 0, sizeof(serv_addr));   // initialize the structure
+    serv_addr.sin_family = AF_INET;
+    serv_addr.sin_addr.s_addr= inet_addr(argv[1]);
+    serv_addr.sin_port =  htons(SERV_PORT); //convert to big-endian order
+    
+    //STEP 3: Establish connection
+    if (connect(socket_fd, (struct sockaddr *) &serv_addr, sizeof(serv_addr)) < 0) {
+        perror("Problem in connecting to the server");
+        exit(3);
     }
-        close(sock);
+    
+    // Read a line from specified stream into send_line
+    
+    while (fgets(send_line, MAX_TEXT_LENGTH, stdin) != NULL) {
+        
+        send(socket_fd, send_line, strlen(send_line), 0);
+        
+        if (recv(socket_fd, recv_line, MAX_TEXT_LENGTH,0) == 0){
+            perror("The server terminated prematurely");
+            exit(4);
         }
-
-*/
+        
+        printf("%s", "String received from the server: ");
+        fputs(recv_line, stdout);
+    }
+    
+    exit(0);
+}
