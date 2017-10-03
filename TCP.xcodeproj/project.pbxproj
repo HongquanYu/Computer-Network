@@ -7,7 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9A126CE21F83233800C83786 /* Concurrent_Server.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A126CE11F83233800C83786 /* Concurrent_Server.c */; };
+		9A126CE21F83233800C83786 /* Server.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A126CE11F83233800C83786 /* Server.c */; };
+		9A126CE41F83463300C83786 /* read_file.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A126CE31F83463300C83786 /* read_file.c */; };
+		9A126CE61F83CB6700C83786 /* send_int.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A126CE51F83CB6700C83786 /* send_int.c */; };
+		9A31458C1F8423A500DA1D9E /* send_data.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A31458A1F8423A500DA1D9E /* send_data.c */; };
+		9A31458E1F84283600DA1D9E /* test.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A31458D1F84283600DA1D9E /* test.c */; };
 		9A4C28ED1F7ABB09006EAF79 /* Client.c in Sources */ = {isa = PBXBuildFile; fileRef = 9A4C28EC1F7ABB09006EAF79 /* Client.c */; };
 /* End PBXBuildFile section */
 
@@ -24,7 +28,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9A126CE11F83233800C83786 /* Concurrent_Server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Concurrent_Server.c; sourceTree = "<group>"; };
+		9A126CE11F83233800C83786 /* Server.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Server.c; sourceTree = "<group>"; };
+		9A126CE31F83463300C83786 /* read_file.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = read_file.c; sourceTree = "<group>"; };
+		9A126CE51F83CB6700C83786 /* send_int.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = send_int.c; sourceTree = "<group>"; };
+		9A126CE71F840C8600C83786 /* Server.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Server.h; sourceTree = "<group>"; };
+		9A3145891F84104800DA1D9E /* Client.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Client.h; sourceTree = "<group>"; };
+		9A31458A1F8423A500DA1D9E /* send_data.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = send_data.c; sourceTree = "<group>"; };
+		9A31458B1F8423A500DA1D9E /* send_data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = send_data.h; sourceTree = "<group>"; };
+		9A31458D1F84283600DA1D9E /* test.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = test.c; sourceTree = "<group>"; };
 		9A44CA721F797138000051C6 /* TCP */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = TCP; sourceTree = BUILT_PRODUCTS_DIR; };
 		9A4C28EC1F7ABB09006EAF79 /* Client.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = Client.c; sourceTree = "<group>"; };
 		9A4C28EF1F7ABB21006EAF79 /* Socket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Socket.h; sourceTree = "<group>"; };
@@ -60,9 +71,16 @@
 		9A44CA941F79869A000051C6 /* TCP */ = {
 			isa = PBXGroup;
 			children = (
-				9A126CE11F83233800C83786 /* Concurrent_Server.c */,
 				9A4C28EF1F7ABB21006EAF79 /* Socket.h */,
+				9A126CE31F83463300C83786 /* read_file.c */,
+				9A126CE51F83CB6700C83786 /* send_int.c */,
+				9A126CE71F840C8600C83786 /* Server.h */,
+				9A126CE11F83233800C83786 /* Server.c */,
+				9A3145891F84104800DA1D9E /* Client.h */,
 				9A4C28EC1F7ABB09006EAF79 /* Client.c */,
+				9A31458B1F8423A500DA1D9E /* send_data.h */,
+				9A31458A1F8423A500DA1D9E /* send_data.c */,
+				9A31458D1F84283600DA1D9E /* test.c */,
 			);
 			name = TCP;
 			sourceTree = "<group>";
@@ -124,7 +142,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A126CE21F83233800C83786 /* Concurrent_Server.c in Sources */,
+				9A31458C1F8423A500DA1D9E /* send_data.c in Sources */,
+				9A126CE21F83233800C83786 /* Server.c in Sources */,
+				9A126CE41F83463300C83786 /* read_file.c in Sources */,
+				9A31458E1F84283600DA1D9E /* test.c in Sources */,
+				9A126CE61F83CB6700C83786 /* send_int.c in Sources */,
 				9A4C28ED1F7ABB09006EAF79 /* Client.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
